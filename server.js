@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //extended false -> Does not allow nested objects
 app.use(bodyParser.json());
 
-const password = encodeURIComponent("");
+const password = encodeURIComponent(`${process.env.MONGODB_KEY}`);
 
 mongoose.connect(`mongodb+srv://ratulchhibber:${password}@cluster0.wcdbqsz.mongodb.net/notesdb`)
     .then(function () {
