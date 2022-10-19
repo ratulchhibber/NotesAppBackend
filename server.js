@@ -18,8 +18,8 @@ mongoose.connect(`mongodb+srv://ratulchhibber:${password}@cluster0.wcdbqsz.mongo
             response.send("HomePage");
         });
 
-       
-
+        const noteRouter = require('./routes/Note');
+        app.use("/notes", noteRouter);
     });
 
 
