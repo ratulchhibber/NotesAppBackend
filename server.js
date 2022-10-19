@@ -23,7 +23,7 @@ mongoose.connect(`mongodb+srv://ratulchhibber:${password}@cluster0.wcdbqsz.mongo
     });
 
 
-
-app.listen(5055, function () {
-    console.log("Server started, Port: 5055");
+const PORT = process.env.PORT || 5055;
+app.listen(PORT, function () {
+    console.log(`Server started, Port: ${PORT}`);
 });
