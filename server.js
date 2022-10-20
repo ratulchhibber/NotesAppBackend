@@ -5,6 +5,9 @@ const Note = require("./model/Note");
 const bodyParser = require("body-parser");
 const { handleError } = require("./error/error");
 
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger_output.json");
+
 app.use(bodyParser.urlencoded({ extended: false }));
 //extended true -> Allows nested objects
 //extended false -> Does not allow nested objects
@@ -29,6 +32,13 @@ mongoose
 
     const noteRouter = require("./routes/Note");
     app.use("/notes", noteRouter);
+
+    noteRouter.use(
+      "/api-docs",
+      swaggerUi.serve,
+      swaggerUi.setup(swaggerDocument)
+    );
+
     app.use(handleError);
   });
 
