@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const mongoose = require("mongoose");
 const Note = require("./model/Note");
@@ -12,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //extended true -> Allows nested objects
 //extended false -> Does not allow nested objects
 app.use(bodyParser.json());
-
+app.use(cors());
 app.use((req, res, next) => {
   const { method, path } = req;
   console.log(`New request to ${method} ${path}`);
@@ -20,7 +21,6 @@ app.use((req, res, next) => {
 });
 
 const password = encodeURIComponent(`${process.env.MONGODB_KEY}`);
-
 app.get("/", function (request, response) {
   response.send("Homepage");
 });
