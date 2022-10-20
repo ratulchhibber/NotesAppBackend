@@ -5,7 +5,7 @@
     "title": "REST API",
     "description": ""
   },
-  "host": "https://mynotesapp191022.herokuapp.com",
+  "host": "mynotesapp191022.herokuapp.com",
   "basePath": "/",
   "schemes": [
     "https"
