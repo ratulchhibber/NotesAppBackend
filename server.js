@@ -19,17 +19,17 @@ app.use((req, res, next) => {
   next();
 });
 
-const password = encodeURIComponent("Ratul@Mongodb01");
+const password = encodeURIComponent(`${process.env.MONGODB_KEY}`);
+
+app.get("/", function (request, response) {
+  response.send("Homepage");
+});
 
 mongoose
   .connect(
     `mongodb+srv://ratulchhibber:${password}@cluster0.wcdbqsz.mongodb.net/notesdb`
   )
   .then(function () {
-    app.get("/", function (request, response) {
-      response.send("Homepage");
-    });
-
     const noteRouter = require("./routes/Note");
     app.use("/notes", noteRouter);
 
