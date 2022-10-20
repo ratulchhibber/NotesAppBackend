@@ -5,10 +5,10 @@
     "title": "REST API",
     "description": ""
   },
-  "host": "localhost:5055",
+  "host": "https://mynotesapp191022.herokuapp.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "http", "https"
   ],
   "paths": {
     "/": {
