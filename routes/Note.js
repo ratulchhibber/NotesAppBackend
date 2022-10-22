@@ -2,16 +2,6 @@ const express = require("express");
 const router = express.Router();
 const Note = require("./../model/Note");
 
-router.get("/", function (request, response, next) {
-  try {
-    if (request.params.something == "") {
-      response.send("@Homepage");
-    }
-  } catch (err) {
-    next(err);
-  }
-});
-
 router.get("/list/all", async function (request, response, next) {
   try {
     var notes = await Note.find();
